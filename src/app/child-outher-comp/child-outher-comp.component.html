@@ -1,0 +1,20 @@
+<hr>
+<h3>Передача св-в c дочернего в родительский компонент</h3>
+<hr>
+<div>
+  <fieldset><legend>Родительский блок</legend>
+    <ng-content></ng-content>
+  </fieldset>
+  <fieldset><legend>Дочерний блок</legend>
+    <button (click)="clickToIncrease(true)">+</button>
+    <button (click)="clickToIncrease(false)">-</button>
+    <br>
+    <label>
+      Price from parent can be changed in children
+      <input
+        [ngModel]="price"
+        (ngModelChange)="changePriceChildren($event)"
+      >
+    </label>
+  </fieldset>
+</div>

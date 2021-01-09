@@ -1,0 +1,32 @@
+<h3>База + привязки/binding</h3>
+<hr>
+<div class="content-center">
+  <ng-content></ng-content>
+  <div class="content-left">
+    <p>Click: {{count}}</p>
+    <label>
+      Ввуди имя, ушлепок:
+      <input
+        [(ngModel)]="name"
+        [value]="name"
+        (change)="changeFirstNameField(name)"
+        (focus)="focusFirstNameField(name)"
+        [class]="firstNameClass"
+        placeholder="Idiot"
+      />
+    </label>
+    <br>
+    <label>
+      Фамилия твоя:
+      <input
+        [class.required]="lastNameIsRequired"
+        [attr.placeholder]="msgLastName"
+      />
+    </label>
+    <h4>Даров, {{name}}</h4>
+    <button (click)="click(name, $event)">Хочешь в Европку - жмы на цю кнопку</button>
+    <p>Age - {{age}}</p>
+    <p ></p>
+  </div>
+</div>
+
