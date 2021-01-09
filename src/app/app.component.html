@@ -12,9 +12,8 @@
   </app-child-comp>
 
   <app-child-outher-comp
-    [price]="price"
+    [(price)]="price"
     (changedClicks)="changedClicksParent($event)"
-    (priceChangeChildrenEvent)="changePrice($event)"
   >
     <p>Clicks - {{clicks}}</p>
     <p>Price - {{price}}</p>

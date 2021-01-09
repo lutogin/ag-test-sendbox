@@ -8,12 +8,12 @@ import { EventEmitter } from '@angular/core';
 })
 export class ChildOutherCompComponent implements OnInit {
   @Input() price: number;
-  @Output() priceChangeChildrenEvent = new EventEmitter<number>();
+  @Output() priceChange = new EventEmitter<number>();
   @Output() changedClicks = new EventEmitter<boolean>();
 
   changePriceChildren(newPrice: number): void {
     this.price = newPrice;
-    this.priceChangeChildrenEvent.emit(newPrice);
+    this.priceChange.emit(newPrice);
   }
 
   clickToIncrease(increased: boolean): void {

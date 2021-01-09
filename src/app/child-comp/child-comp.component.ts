@@ -10,7 +10,7 @@ export class ChildCompComponent implements OnInit {
   userName: string;
 
   // tslint:disable-next-line:variable-name
-  private _userAge: number;
+  _userAge: number;
 
   @Input()
   set userAge(age: number) {

@@ -12,15 +12,11 @@ export class AppComponent {
   useAge = 29;
 
   clicks = 0;
-  price = 1;
+  price = 999;
 
   changedClicksParent(increased: boolean): void {
     this.clicks = increased
       ? this.clicks + 1
       : this.clicks - 1;
-  }
-
-  changePrice(price): void {
-    this.price = price;
   }
 }
