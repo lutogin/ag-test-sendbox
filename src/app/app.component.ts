@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ChildOutherCompComponent } from './child-outher-comp/child-outher-comp.component';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +15,20 @@ export class AppComponent {
   clicks = 0;
   price = 999;
 
+  @ViewChild(ChildOutherCompComponent, { static: false })
+  private counterComponent: ChildOutherCompComponent;
+
   changedClicksParent(increased: boolean): void {
     this.clicks = increased
       ? this.clicks + 1
       : this.clicks - 1;
+  }
+
+  increment(): void {
+    this.counterComponent.counter += 1;
+  }
+
+  decrement(): void {
+    this.counterComponent.counter -= 1;
   }
 }

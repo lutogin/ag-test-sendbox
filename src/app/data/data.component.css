@@ -1,0 +1,13 @@
+p {
+  color: mediumblue;
+}
+
+.verdanaFont{
+  font-size: 13px;
+  font-family: Verdana, cursive;
+}
+
+.segoePrintFont{
+  font-size: 14px;
+  font-family: "Segoe Print", fantasy;
+}

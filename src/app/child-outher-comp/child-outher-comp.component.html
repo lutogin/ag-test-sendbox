@@ -17,4 +17,21 @@
       >
     </label>
   </fieldset>
+  <br>
+  <hr>
+  <br>
+  <fieldset><legend>Блок с шаблонной переменой</legend>
+    <p #someTemplate>{{labelTemplate}}</p>
+    <p>Взято через textContent шаблона - {{someTemplate.textContent}}</p>
+    <label>
+      Меняем шаблонную переменную
+      <input type="text" [(ngModel)]="labelTemplate" value="{{labelTemplate}}">
+    </label>
+  </fieldset>
+
+  <fieldset><legend>Дочеорний блок с шаблонной переменной</legend>
+    <div>
+      <p #counterTemplate>{{counter}}</p>
+    </div>
+  </fieldset>
 </div>

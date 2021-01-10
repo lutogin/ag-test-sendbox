@@ -1,6 +1,7 @@
 <div>
+  <!-- start 1-->
   <app-hello-form><p style="text-align: center">Важная форма!11</p></app-hello-form>
-
+  <!-- start 2-->
   <app-child-comp
     [userName]="userName"
     [userAge]="useAge"
@@ -10,7 +11,7 @@
       <input type="text" [(ngModel)]="useAge">
     </label>
   </app-child-comp>
-
+  <!-- start 3-->
   <app-child-outher-comp
     [(price)]="price"
     (changedClicks)="changedClicksParent($event)"
@@ -18,6 +19,14 @@
     <p>Clicks - {{clicks}}</p>
     <p>Price - {{price}}</p>
   </app-child-outher-comp>
+  <br>
+  <fieldset><legend>Родительский блок с доступом к шаблонной переменной с дочернего</legend>
+    <button (click)="increment()">+</button>
+    <button (click)="decrement()">-</button>
+  </fieldset>
 </div>
+
+<app-data-component></app-data-component>
+
 
 <router-outlet></router-outlet>

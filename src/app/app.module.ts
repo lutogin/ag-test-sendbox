@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DataModule } from './data/data.module';
 import { HelloFormComponent } from './hello-form/hello-form.component';
 import { ChildCompComponent } from './child-comp/child-comp.component';
 import { ChildOutherCompComponent } from './child-outher-comp/child-outher-comp.component';
@@ -18,7 +19,8 @@ import { ChildOutherCompComponent } from './child-outher-comp/child-outher-comp.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    DataModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
