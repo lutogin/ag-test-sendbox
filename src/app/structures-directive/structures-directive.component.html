@@ -1,0 +1,26 @@
+<br>
+<hr>
+<h3>Structures Directive</h3>
+<fieldset><legend>Child component</legend>
+  <div>
+    <p>Block show - <span bold2 [style.color]="showBlock? 'green' : 'red'">{{showBlock}}</span></p>
+    <p *ngIf="showBlock">Tratatattaaaaa</p>
+    <button (click)="toggleBlockShow()">Toggle show block</button>
+  </div>
+  <hr>
+  <div>
+    <ul>
+      <ng-container *ngFor="let item of menu; let i = index">
+        <li *ngIf="item.show">{{item.title}} index - {{i}}</li>
+      </ng-container>
+    </ul>
+  </div>
+  <hr>
+  <h3>Создание структурных директив</h3>
+  <div>
+    <p *while="condition">Первый абзац</p>
+    <p *while="!condition">Второй абзац</p>
+    <button (click)="toggleCondition()">Сменить</button>
+  </div>
+
+</fieldset>
