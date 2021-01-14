@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComponentWithServiceModule } from './component-with-service/component-with-service.module';
 import { DataModule } from './data/data.module';
 import { HelloFormComponent } from './hello-form/hello-form.component';
 import { ChildCompComponent } from './child-comp/child-comp.component';
@@ -27,6 +28,7 @@ import {WhileDirective} from './structures-directive/while.directive';
     AppRoutingModule,
     FormsModule,
     DataModule,
+    ComponentWithServiceModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
