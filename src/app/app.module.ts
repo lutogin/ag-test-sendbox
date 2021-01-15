@@ -12,6 +12,7 @@ import { ChildOutherCompComponent } from './child-outher-comp/child-outher-comp.
 import { StructuresDirectiveComponent } from './structures-directive/structures-directive.component';
 import {BoldDirective2} from './structures-directive/bold.directive';
 import {WhileDirective} from './structures-directive/while.directive';
+import {WorkWithFormsModule} from './work-with-forms/work-with-forms.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {WhileDirective} from './structures-directive/while.directive';
     FormsModule,
     DataModule,
     ComponentWithServiceModule,
+    WorkWithFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
