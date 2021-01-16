@@ -1,0 +1,30 @@
+<br>
+<br>
+<hr>
+<h3>ngForm</h3>
+<div>
+  <form #form="ngForm" action="" (ngSubmit)="actionSubmitForm(form)">
+    <div>
+      <label for="nameInput">Name</label>
+      <input id="nameInput" name="name" [(ngModel)]="name" type="text" required="required" pattern="[a-z0-9]*">
+    </div>
+
+    <div>
+      <label for="pwdInput">Pwd</label>
+      <input id="pwdInput" name="password" [(ngModel)]="password" type="text">
+    </div>
+
+    <div>
+      <label for="roleInput">Role</label>
+      <input id="roleInput" name="role" type="text">
+    </div>
+
+    <div>
+      <button [disabled]="form.invalid">ok</button>
+    </div>
+
+    <div>
+      <p>USER-{{form.value.name}}</p>
+    </div>
+  </form>
+</div>
