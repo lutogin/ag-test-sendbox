@@ -13,6 +13,7 @@ import { StructuresDirectiveComponent } from './structures-directive/structures-
 import {BoldDirective2} from './structures-directive/bold.directive';
 import {WhileDirective} from './structures-directive/while.directive';
 import {WorkWithFormsModule} from './work-with-forms/work-with-forms.module';
+import {InteractionModule} from './interaction/interaction.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {WorkWithFormsModule} from './work-with-forms/work-with-forms.module';
     DataModule,
     ComponentWithServiceModule,
     WorkWithFormsModule,
+    InteractionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
