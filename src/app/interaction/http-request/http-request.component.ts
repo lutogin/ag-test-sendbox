@@ -1,25 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user.class';
-import { HttpClient } from '@angular/common/http';
+import { UserService } from './user.service';
+import {log} from 'util';
 
 @Component({
   selector: 'app-http-request',
   templateUrl: './http-request.component.html',
-  styleUrls: ['./http-request.component.css']
+  styleUrls: ['./http-request.component.css'],
+  providers: [
+    UserService,
+  ]
 })
 export class HttpRequestComponent implements OnInit {
   users: User[] = [];
 
   constructor(
-    private readonly client: HttpClient
+    private readonly userService: UserService
   ) { }
 
   ngOnInit(): void {
-    this.client
-      .get('assets/users.json')
-      .subscribe((data: { users: User[] }) => {
-        this.users.push(...data.users);
-      });
+    const test = this.userService
+      .getAll();
+    console.log(test);
+    this.users = test;
   }
 
 }
