@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './user.class';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class UserService {
@@ -10,16 +10,15 @@ export class UserService {
     private readonly client: HttpClient,
   ) {}
 
-  getAll(): User[] {
-    const result: User[] = [];
-    this.client
-      .get('assets/users.json')
-      .pipe(
-        map((data: { users: User[] }) => data.users),
-        catchError((err: Error) => throwError(err))
-      )
-      .subscribe((users: User[]) => result.push(...users));
+  getAll(): Observable<User[]> {
+    const headers = new HttpHeaders()
+      .set('Authorization', 'my-auth-token');
 
-    return result;
+    return this.client
+      .get('http://127.0.0.1:3000/users', { headers })
+      .pipe(
+        map((data: User[] ) => data),
+        catchError((err: Error) => throwError(err))
+      );
   }
 }

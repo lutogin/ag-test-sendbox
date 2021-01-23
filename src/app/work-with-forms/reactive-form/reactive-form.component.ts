@@ -21,7 +21,7 @@ export class ReactiveFormComponent implements OnInit {
       phones: new FormArray([
         new FormControl('+38', [
           Validators.required,
-          Validators.pattern('[0-9]{9}')
+          Validators.pattern('[0-9]{5,9}')
         ])
       ])
     });

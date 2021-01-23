@@ -1,7 +1,8 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from './user.class';
 import { UserService } from './user.service';
-import {MathService} from './math.service';
+import { MathService } from './math.service';
 
 @Component({
   selector: 'app-http-request',
@@ -9,6 +10,7 @@ import {MathService} from './math.service';
   styleUrls: ['./http-request.component.css'],
   providers: [
     UserService,
+    MathService,
   ]
 })
 export class HttpRequestComponent implements OnInit {
@@ -21,11 +23,10 @@ export class HttpRequestComponent implements OnInit {
     private readonly mathService: MathService,
   ) { }
 
-  ngOnInit(): void {
-    const test = this.userService
-      .getAll();
-    console.log(test);
-    this.users = test;
+  getUsers(): void {
+    this.userService
+      .getAll()
+      .subscribe((users: User[]) => this.users.push(...users));
   }
 
   getSum(): void {
@@ -33,7 +34,11 @@ export class HttpRequestComponent implements OnInit {
       .split(',')
       .map((el) => Number(el));
 
-    this.sumResult = this.mathService.getSum(numbers);
+    this.mathService
+      .getSum(numbers)
+      .subscribe((data: { result: number }) => this.sumResult = data.result);
   }
 
+  ngOnInit(): void {
+  }
 }

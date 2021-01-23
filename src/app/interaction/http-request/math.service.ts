@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class MathService {
@@ -7,13 +8,11 @@ export class MathService {
     private readonly client: HttpClient,
   ) {}
 
-  getSum(numbers: number[]): number {
-    let result = 0;
+  getSum(numbers: number[]): Observable<object> {
+    const headers = new HttpHeaders()
+      .set('Authorization', 'my-auth-token');
 
-    this.client
-      .post('http://127.0.0.1:3000/sum', numbers)
-      .subscribe((data: { result: number }) => result = data.result);
-
-    return result;
+    return this.client
+      .post('http://127.0.0.1:3000/sum', numbers, { headers });
   }
 }

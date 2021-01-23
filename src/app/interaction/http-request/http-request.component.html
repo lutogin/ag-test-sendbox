@@ -3,7 +3,7 @@
 <hr>
 <h3>HTTP клиент</h3>
 <div>
-  <button>Получить юзеров</button>
+  <button (click)="getUsers()">Получить юзеров</button>
   <ul>
     <li *ngFor="let user of users">
       {{user.name}} - {{user.age}}
@@ -11,5 +11,18 @@
   </ul>
 </div>
 <div>
-  <input type="text" [(ngModel)]="" ]>
+  <div>
+    <label>
+      Запиши через запятую цифры для суммирования
+      <input type="text" [(ngModel)]="toSum">
+    </label>
+    <button (click)="getSum()">Посчитать</button>
+  </div>
+  <div>
+    <label>
+      Сумма:
+      <input type="text" disabled value="{{sumResult}}">
+    </label>
+  </div>
+
 </div>
