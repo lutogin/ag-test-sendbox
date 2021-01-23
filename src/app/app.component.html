@@ -1,43 +1,62 @@
+<!--<div>-->
+<!--  &lt;!&ndash; start 1&ndash;&gt;-->
+<!--  <app-hello-form><p style="text-align: center">Важная форма!11</p></app-hello-form>-->
+<!--  &lt;!&ndash; start 2&ndash;&gt;-->
+<!--  <app-child-comp-->
+<!--    [userName]="userName"-->
+<!--    [userAge]="useAge"-->
+<!--  >-->
+<!--    <label>-->
+<!--      Age:-->
+<!--      <input type="text" [(ngModel)]="useAge">-->
+<!--    </label>-->
+<!--  </app-child-comp>-->
+<!--  &lt;!&ndash; start 3&ndash;&gt;-->
+<!--  <app-child-outher-comp-->
+<!--    [(price)]="price"-->
+<!--    (changedClicks)="changedClicksParent($event)"-->
+<!--  >-->
+<!--    <p>Clicks - {{clicks}}</p>-->
+<!--    <p>Price - {{price}}</p>-->
+<!--  </app-child-outher-comp>-->
+<!--  <br>-->
+<!--  <fieldset><legend>Родительский блок с доступом к шаблонной переменной с дочернего</legend>-->
+<!--    <button (click)="increment()">+</button>-->
+<!--    <button (click)="decrement()">-</button>-->
+<!--  </fieldset>-->
+<!--</div>-->
+
+<!--<app-data-component></app-data-component>-->
+
+<!--<app-structures-directive></app-structures-directive>-->
+
+<!--<app-component-with-service></app-component-with-service>-->
+
+<!--<app-work-with-forms></app-work-with-forms>-->
+
+<!--<app-work-with-ngform></app-work-with-ngform>-->
+
+<!--<app-reactive-form></app-reactive-form>-->
+
+<!--<app-http-request></app-http-request>-->
+
 <div>
-  <!-- start 1-->
-  <app-hello-form><p style="text-align: center">Важная форма!11</p></app-hello-form>
-  <!-- start 2-->
-  <app-child-comp
-    [userName]="userName"
-    [userAge]="useAge"
-  >
-    <label>
-      Age:
-      <input type="text" [(ngModel)]="useAge">
-    </label>
-  </app-child-comp>
-  <!-- start 3-->
-  <app-child-outher-comp
-    [(price)]="price"
-    (changedClicks)="changedClicksParent($event)"
-  >
-    <p>Clicks - {{clicks}}</p>
-    <p>Price - {{price}}</p>
-  </app-child-outher-comp>
-  <br>
-  <fieldset><legend>Родительский блок с доступом к шаблонной переменной с дочернего</legend>
-    <button (click)="increment()">+</button>
-    <button (click)="decrement()">-</button>
-  </fieldset>
+  <p><a href="/">MAIN</a></p>
+  <p><a routerLink="/hello" routerLinkActive="active">hello</a></p>
+  <p><a routerLink="/data" routerLinkActive="active">data</a></p>
+  <p><a routerLink="/structures" routerLinkActive="active">structures</a></p>
+  <p><a routerLink="/component-with-service" routerLinkActive="active">component-with-service</a></p>
+  <p><a routerLink="/forms" routerLinkActive="active">forms</a></p>
+  <p><a routerLink="/forms-ng" routerLinkActive="active">forms-ng</a></p>
+  <p><a routerLink="/reactive-forms" routerLinkActive="active">eactive-forms</a></p>
+  <p><a routerLink="/http-req" routerLinkActive="active">http-req</a></p>
+  <p><a
+    [routerLink]="['item', '5']"
+    routerLinkActive="active"
+    [queryParams]="{'product':'phone', 'price': 200}"
+  >test pass params in route 5</a></p>
+  <p><a [routerLink]="['item', '6']" routerLinkActive="active">test pass params in route 6</a></p>
 </div>
-
-<app-data-component></app-data-component>
-
-<app-structures-directive></app-structures-directive>
-
-<app-component-with-service></app-component-with-service>
-
-<app-work-with-forms></app-work-with-forms>
-
-<app-work-with-ngform></app-work-with-ngform>
-
-<app-reactive-form></app-reactive-form>
-
-<app-http-request></app-http-request>
+<hr>
 
 <router-outlet></router-outlet>

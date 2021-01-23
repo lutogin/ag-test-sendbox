@@ -20,12 +20,12 @@ app.get('/users', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  console.log('headers ---> ', req.headers?.authorization);
+  console.log('headers ---> ', req.headers.authorization);
   res.send(users.users);
 });
 
 app.post('/sum', ((req, res) => {
-  console.log('headers ---> ', req.headers?.authorization);
+  console.log('headers ---> ', req.headers.authorization);
   const numbers = req.body;
   res.send({ result: numbers.reduce((acc, el) => acc + Number(el), 0) });
 }));
