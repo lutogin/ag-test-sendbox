@@ -22,6 +22,15 @@ import {WorkWithNgformComponent} from './work-with-forms/work-with-ngform/work-w
 import {ReactiveFormComponent} from './work-with-forms/reactive-form/reactive-form.component';
 import {HttpRequestComponent} from './interaction/http-request/http-request.component';
 import { TestRouteParamComponent } from './test-route-param/test-route-param.component';
+import { ProductComponent } from './product/product.component';
+import { ProductStatComponent } from './product/product-stat/product-stat.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+
+// определение дочерних маршрутов
+const itemRoutes: Routes = [
+  { path: 'details', component: ProductDetailComponent},
+  { path: 'stat', component: ProductStatComponent},
+];
 
 const appRoutes: Routes = [
   // { path: '', component: AppComponent },
@@ -34,6 +43,7 @@ const appRoutes: Routes = [
   { path: 'reactive-forms', component: ReactiveFormComponent },
   { path: 'http-req', component: HttpRequestComponent },
   { path: 'item/:id', component: TestRouteParamComponent },
+  { path: 'product/:id', component: ProductComponent, children: itemRoutes },
   { path: '**', redirectTo: '/'}
 ];
 
@@ -47,6 +57,9 @@ const appRoutes: Routes = [
     BoldDirective2,
     WhileDirective,
     TestRouteParamComponent,
+    ProductComponent,
+    ProductStatComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
