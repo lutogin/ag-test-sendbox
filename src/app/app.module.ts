@@ -9,6 +9,7 @@ import { DataModule } from './data/data.module';
 import { HelloFormComponent } from './hello-form/hello-form.component';
 import { ChildCompComponent } from './child-comp/child-comp.component';
 import { ChildOutherCompComponent } from './child-outher-comp/child-outher-comp.component';
+import { ProductGuard } from './product/product.guard';
 import { StructuresDirectiveComponent } from './structures-directive/structures-directive.component';
 import { BoldDirective2 } from './structures-directive/bold.directive';
 import { WhileDirective } from './structures-directive/while.directive';
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
   { path: 'reactive-forms', component: ReactiveFormComponent },
   { path: 'http-req', component: HttpRequestComponent },
   { path: 'item/:id', component: TestRouteParamComponent },
-  { path: 'product/:id', component: ProductComponent, children: itemRoutes },
+  { path: 'product/:id', component: ProductComponent, children: itemRoutes, canActivate: [ProductGuard] },
   { path: '**', redirectTo: '/'}
 ];
 
@@ -71,7 +72,9 @@ const appRoutes: Routes = [
     InteractionModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [
+    ProductGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
